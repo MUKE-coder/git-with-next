@@ -1,17 +1,22 @@
 "use client";
 import AppDev from "@/components/AppDev";
 import Machine from "@/components/Machine";
+import { BsFillHouseAddFill } from "react-icons/bs";
 import ServiceCard from "@/components/ServiceCard";
+
 import WebDev from "@/components/WebDev";
-import { appService, machineService, webService } from "@/servicesData";
+import {
+  appService,
+  benefits,
+  machineService,
+  webService,
+} from "@/servicesData";
 import Image from "next/image";
 import { useState } from "react";
+import Card from "@/components/Card";
 
 export default function Home() {
   const [service, setService] = useState("app");
-  console.log(webService);
-  console.log(appService);
-  console.log(machineService);
   function changeToApp() {
     setService("app");
   }
@@ -21,7 +26,7 @@ export default function Home() {
   function changeToMachine() {
     setService("machine");
   }
-  console.log(service);
+  console.log(benefits);
   return (
     <main>
       <div className="buttons">
@@ -52,6 +57,13 @@ export default function Home() {
         ) : (
           <ServiceCard data={machineService} />
         )}
+      </div>
+      <div className="cards">
+        {benefits.map((item) => {
+          return (
+            <Card data={item} key={item.id}/>
+          );
+        })}
       </div>
     </main>
   );
