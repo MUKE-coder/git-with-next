@@ -25,11 +25,13 @@ button {
   padding: 1rem 3rem;
   border: none;
 }
-.cards {
+.cards,
+.products {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 }
-.card {
+.card,
+.product {
   border: 1px solid red;
 }

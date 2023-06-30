@@ -14,6 +14,8 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import Card from "@/components/Card";
+import getProducts from "./libs/getProducts";
+import Link from "next/link";
 
 export default function Home() {
   const [service, setService] = useState("app");
@@ -29,6 +31,7 @@ export default function Home() {
   console.log(benefits);
   return (
     <main>
+      <Link href="/products">View Products</Link>
       <div className="buttons">
         <button
           className={service == "app" ? "activeBtn" : ""}
@@ -60,9 +63,7 @@ export default function Home() {
       </div>
       <div className="cards">
         {benefits.map((item) => {
-          return (
-            <Card data={item} key={item.id}/>
-          );
+          return <Card data={item} key={item.id} />;
         })}
       </div>
     </main>
